@@ -1,5 +1,5 @@
-## Pomo
-[link](https://dezzy001.github.io/pomoApp.html)
+## PomoBlog
+[link](https://dezzy001.github.io/pomo/pomoApp.html)
 ## Rules
 -
 

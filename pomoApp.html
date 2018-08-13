@@ -1,1 +1,29 @@
-test
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pomo</title>
+  </head>
+  <body>
+
+
+    <!-- Display the countdown timer in an element -->
+    <p id="safeTimerDisplay">TIMER:</p>
+    <button onclick="timer()">Start Timer</button>
+    
+    <script>
+    function timer(){
+        var sec = 30;
+        var timer = setInterval(function(){
+            document.getElementById('safeTimerDisplay').innerHTML='00:'+sec;
+            sec--;
+            if (sec < 0) {
+                clearInterval(timer);
+            }
+        }, 1000);
+    }
+
+    </script>
+
+  </body>
+</html>
