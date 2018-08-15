@@ -1,5 +1,23 @@
 ## PomoApp
-[Check out the App here](https://dezzy001.github.io/pomo/pomoApp.html)
-A web app utilising the pomodoro technique, attempting to gamify the process to make studying FUN like never before!
+### [Check out the App here](https://dezzy001.github.io/pomo/pomoApp.html)
+* A web app utilising the pomodoro technique, attempting to gamify the process to make studying FUN like never before!
+### Rules
+* 3 different modes
+  * Easy
+    * One pomodoro cycle = 15 minutues study -> 5 minute breaks
+    * after 2 cycles a 30 minute break is rewarded
+    * If one cycle is broken, reduce 5 minutes to the 30 minutes break (additive)
+    * 40 minute time commitment
+  * Medium
+    * One pomodoro cycle = 20 minutues study -> 5 minute breaks
+    * after 2 cycles a 30 minute break is rewarded
+    * If one cycle is broken, reduce 5 minutes to the 30 minutes break (additive)
+    * 50 minute time commitment
+  * Hard
+    * One pomodoro cycle = 25 minutues study -> 5 minute breaks
+    * after 2 cycles a 30 minute break is rewarded
+    * If one cycle is broken, reduce 5 minutes to the 30 minutes break (additive)
+    * 60 minute time commitment
 
-
+### Ideas
+* include a point system
