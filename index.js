@@ -85,5 +85,7 @@ function skip(){
 }
 
 function logout(){
+  stopTimer();
   firebase.auth().signOut();
+
 }
