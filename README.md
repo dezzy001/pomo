@@ -1,6 +1,7 @@
 ## PomoBlog
 [Check out the app here!](https://dezzy001.github.io/pomo/pomoApp.html)
 
+[Check out my main blog here!](https://dezzy001.github.io/)
 * A web app utilising the pomodoro technique, attempting to gamify the process to make studying FUN like never before!
 
 ### Rules
@@ -24,6 +25,7 @@
   * If one cycle is broken, reduce 5 minutes to the 30 minutes break (additive)
   * 60 minute time commitment
   * 5 pomodoro cycles a day to complete the day
-### TO DO
+
+## TO DO
 * include a point system
 * change it from seconds to minutes for the input

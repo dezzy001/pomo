@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <head>
     <meta charset="UTF-8">
     <!-- view port allows responsiveness in mobile -->
@@ -9,12 +10,14 @@
   </head>
   <body>
 
+
+
     <!-- <a href="https://dezzy001.github.io/">Check out my blogs here!</a> -->
     <!-- Top navagation bar -->
     <div class="topnav">
       <!-- <a class="active" href="#home">Home</a> -->
-      <a href="https://dezzy001.github.io/">Blog</a>
-      <a id="logout_ele" style="float:right" href="javascript:logout()">Logout</a>
+      <a href="https://dezzy001.github.io/pomo/">Blog</a>
+      <a id="logout_ele" style="float:right" display:"none" href="javascript:logout()">Logout</a>
       <a id="welcome_ele" style="float:right"></a>
       <!-- <a href="#about">About</a> -->
     </div>
@@ -23,10 +26,11 @@
     <!-- LOGIN SCREEN ####################################### -->
     <div id="login_div" class="main-div">
       <h3>PomoApp Login</h3>
-      <input type="email" placeholder="Email..." id="email_field" />
-      <input type="password" placeholder="Password..." id="password_field" />
 
-      <button onclick="login()">Login to Account</button>
+        <input onkeypress="inputFieldEnter('login_button')" type="email" placeholder="Email..." id="email_field" />
+        <input onkeypress="inputFieldEnter('login_button')" type="password" placeholder="Password..." id="password_field" />
+        <button id="login_button" onclick="login()">Login</button>
+
       <button onclick="create_div()">Create an Account</button>
       <button onclick="skip()">Skip Login...</button>
     </div>
@@ -34,10 +38,11 @@
     <!-- Create accoutn SCREEN ####################################### -->
     <div id="create_div" class="main-div">
       <h3>PomoApp Account Creation</h3>
-      <input type="email" placeholder="Email..." id="email_field_create" />
-      <input type="password" placeholder="Password..." id="password_field_create" />
 
-      <button onclick="create()">Create!</button>
+        <input onkeypress="inputFieldEnter('create_button')" type="email" placeholder="Email..." id="email_field_create" />
+        <input onkeypress="inputFieldEnter('create_button')" type="password" placeholder="Password..." id="password_field_create" />
+        <button id='create_button' onclick="create()">Create!</button>
+
       <button id="backButton" onclick="back()">< Back</button>
     </div>
 
@@ -83,7 +88,9 @@
 
     </div>
 
+    <!-- loading bar (circle) -->
 
+    <div id="loader_div" class="loader-div"></div>
     <!-- ####################Scripts ####################-->
 
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>

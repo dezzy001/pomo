@@ -1,7 +1,7 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-
+    loadingBarOff();
     document.getElementById("user_div").style.display = "block";
     document.getElementById("login_div").style.display = "none";
     document.getElementById("create_div").style.display = "none";
@@ -45,8 +45,9 @@ function back(){
 function login(){
   var userEmail = document.getElementById("email_field").value;
   var userPass = document.getElementById("password_field").value;
-
+  loadingBarOn();
   firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+loadingBarOff();
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -61,8 +62,9 @@ function login(){
 function create(){
   var userEmail = document.getElementById("email_field_create").value;
   var userPass = document.getElementById("password_field_create").value;
-
+  loadingBarOn();
   firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+    loadingBarOff();
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -79,8 +81,9 @@ function skip(){
   //test email
   var userEmail = "dezzy001@gmail.com";
   var userPass = "qwerty123";
-
+  loadingBarOn();
   firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+    loadingBarOff();
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;

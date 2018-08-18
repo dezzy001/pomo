@@ -3,7 +3,7 @@ body {
   background: #f9f9f9;
   padding: 0px;
   margin: 0px;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.2em;
 }
 
@@ -11,6 +11,32 @@ input, button {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
 }
+
+
+.loader-div {
+  border: 5px solid;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border-color: orange transparent transparent;
+  animation: spin 2s linear infinite;
+  position: fixed;
+  margin-top: 55px;
+  display: none;
+  /* top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  left: 47%;
+
+
+}
+  @keyframes spin {
+    100%{
+      transform: rotate(360deg);
+      filter:hue-rotate(360deg);
+    }
+  }
 
   .topnav {
       background-color: #333;
@@ -179,7 +205,7 @@ transition: 0.3s;
   width: 40%;
   height: 70%;
   display: inline-block;
-  float: left;
+  /* float: left; */
   padding: 15px;
   /* border: 1px solid #21c900; */
   text-align: center;
@@ -189,7 +215,7 @@ transition: 0.3s;
 }
 .info-div{
   width: 40%;
-  height: 70%;
+  height: 100%;
   border-radius: 5px;
   display: inline-block;
   float: right;
@@ -198,18 +224,18 @@ transition: 0.3s;
 }
 
 .main-div #easyButton {
-  background: #21c900;
+  background: rgba(33, 201, 0, 0.7);
   color: #fff;
-  border: 1px solid #21c900;
+  border: 1px solid rgba(33, 201, 0,1);
 }
 .main-div #easyButton:hover{
   background: #fff;
-  color: #21c900;
-  border: 1px solid #21c900;
+  color: rgba(33, 201, 0, 1);
+  border: 1px solid rgba(33, 201, 0, 1);
   cursor: pointer;
 }
 .main-div #mediumButton {
-  background: #ff9000;
+  background: rgba(255, 144, 0, 0.7);
   color: #fff;
   border: 1px solid #ff9000;
 }
@@ -220,7 +246,7 @@ transition: 0.3s;
   cursor: pointer;
 }
 .main-div #hardButton {
-  background: #c90000;
+  background: rgba(255, 5, 5 ,0.7);
   color: #fff;
   border: 1px solid #c90000;
 }
