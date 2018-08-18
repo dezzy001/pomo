@@ -58,8 +58,7 @@ input, button {
     /* width: 60%; */
     min-width: 400px;
     max-width: 500px;
-    max-height: 1500px;
-    min-height: 200px;
+
     /* height: 500px; */
     margin: 0px auto;
     /* margin-top: 150px; */
@@ -163,7 +162,7 @@ transition: 0.3s;
   border: 1px inset #efefef;
   border-radius: 5px;
   padding: 15px;
-  margin: 25px;
+  margin: 3%;
   display: inline-block;
   width: 80%;
   text-align: center;
