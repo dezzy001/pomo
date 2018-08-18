@@ -12,6 +12,10 @@ input, button {
   font-weight: 700;
 }
 
+/* google icons */
+.material-icons.md-18 {
+  font-size: 16px;
+}
 
 .loader-div {
   border: 5px solid;
@@ -47,6 +51,9 @@ input, button {
 
   .topnav #logout_ele {
     background-color: #d13030;
+    text-align: center;
+    vertical-align: middle;
+
   }
   .topnav #logout_ele:hover {
     background-color: #ff5b5b;
@@ -293,7 +300,7 @@ input, button {
   .topnav {
       background-color: #333;
       overflow: hidden;
-      height:25px;
+      height:28px;
       /* max-height: 45px;
       min-height: 20px; */
   }
