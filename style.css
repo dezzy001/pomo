@@ -165,10 +165,10 @@ input, button {
 }
 
 .userButton {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 900;
   display: inline-block;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   /* border: 2px solid rgba(198, 198, 198, 0.9); */
   color: rgba(155, 155, 155, 1);
   width: 50px;
