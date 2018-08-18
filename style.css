@@ -20,7 +20,7 @@ input, button {
   border-radius: 50%;
   border-color: orange transparent transparent;
   animation: spin 2s linear infinite;
-  position: absolute;
+  position: fixed;
   display: none;
   top: auto;
   left: 50%;
@@ -268,7 +268,7 @@ transition: 0.3s;
     border-radius: 50%;
     border-color: orange transparent transparent;
     animation: spin 2s linear infinite;
-    position: absolute;
+    position: fixed;
 
     display: none;
     /* set margin left my radius to center the div (make cnetroid at middle of div) */
