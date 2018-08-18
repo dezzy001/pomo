@@ -61,9 +61,11 @@
     }
 
     function startTimer(timerButton){
-      if(inputTimer.value == ""){
-        display.innerHTML = "ENTER TIME";
-      }else if(!clicked){
+      //code commented below is when you have input box
+      // if(inputTimer.value == ""){
+      //   display.innerHTML = "ENTER TIME";
+      // }else
+      if(!clicked){
 
         display.innerHTML = "STARTED";
         clicked = true;
@@ -109,7 +111,11 @@
     //function which controls the actual logic of the timer (input as minutes)
     function timer(){
 
-        var min = inputTimer.value;
+        //collect input from somewhere
+        // var min = inputTimer.value;
+
+        var min = 20;//test with constant value
+
         var sec = min*60 - 1;
         t = setInterval(function(){
           if(sec>59){
@@ -126,24 +132,7 @@
         }, 1000);
     }
 
-    //function which controls the actual logic of the timer (input as seconds)
-    function timerSec(){
 
-        var sec = inputTimer.value;
-        t = setInterval(function(){
-          if(sec>59){
-            display.innerHTML= Math.floor(sec/60) +' minutes';
-          }else if(sec > 9){
-            display.innerHTML=sec+'s';
-          }else{
-            display.innerHTML= sec+'s';
-          }
-            sec--;
-            if (sec < 0) {
-              endTimer();
-            }
-        }, 1000);
-    }
 
 //     function beep() {
 //     var snd = new Audio(
