@@ -5,14 +5,17 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById("user_div").style.display = "block";
     document.getElementById("login_div").style.display = "none";
     document.getElementById("create_div").style.display = "none";
+    document.getElementById("settings_div").style.display = "none";
 
+    document.getElementById("logout_ele").style.display ="block";
     var user = firebase.auth().currentUser;
 
     if(user != null){
 
       var email_id = user.email;
-      document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
-
+      // document.getElementById("user_para").innerHTML = "Welcome " + email_id;
+      document.getElementById("welcome_ele").style.display ="block";
+      document.getElementById("welcome_ele").innerHTML= email_id;
 
     }
 
@@ -21,7 +24,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     document.getElementById("user_div").style.display = "none";
     document.getElementById("login_div").style.display = "block";
+    document.getElementById("create_div").style.display = "none";
+    document.getElementById("settings_div").style.display = "none";
+    document.getElementById("logout_ele").style.display ="none";
 
+    document.getElementById("welcome_ele").style.display ="none";
   }
 });
 
@@ -86,6 +93,7 @@ function skip(){
 
 function logout(){
   stopTimer();
+
   firebase.auth().signOut();
 
 }

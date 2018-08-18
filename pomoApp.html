@@ -7,9 +7,18 @@
   </head>
   <body>
 
-    <a href="https://dezzy001.github.io/">Check out my blogs here!</a>
+    <!-- <a href="https://dezzy001.github.io/">Check out my blogs here!</a> -->
+    <!-- Top navagation bar -->
+    <div class="topnav">
+      <!-- <a class="active" href="#home">Home</a> -->
+      <a href="https://dezzy001.github.io/">Blog</a>
+      <a id="logout_ele" style="float:right" href="javascript:logout()">Logout</a>
+      <a id="welcome_ele" style="float:right"></a>
+      <!-- <a href="#about">About</a> -->
+    </div>
 
-    <!-- Display the countdown timer in an element -->
+
+    <!-- LOGIN SCREEN ####################################### -->
     <div id="login_div" class="main-div">
       <h3>PomoApp Login</h3>
       <input type="email" placeholder="Email..." id="email_field" />
@@ -20,29 +29,57 @@
       <button onclick="skip()">Skip Login...</button>
     </div>
 
+    <!-- Create accoutn SCREEN ####################################### -->
     <div id="create_div" class="main-div">
       <h3>PomoApp Account Creation</h3>
       <input type="email" placeholder="Email..." id="email_field_create" />
       <input type="password" placeholder="Password..." id="password_field_create" />
 
       <button onclick="create()">Create!</button>
-      <button onclick="back()">back</button>
+      <button id="backButton" onclick="back()">< Back</button>
+    </div>
+
+    <!-- Application SCREEN ####################################### -->
+    <div id="user_div" class="loggedin-div">
+      <!-- <h1 id="user_para">loading...</h1> -->
+
+      <div id = "timerBox" class = "timerBox-div">
+        <p id="timerDisplay">READY TO START!</p>
+      </div>
+
+      <div id ='button_div' class='button-div'>
+        <button id='timerButton'>Start</button>
+        <button id='timerStopButton'>Stop</button>
+
+
+        <input name="timer" value='5' type ="number" id ="inputTimer"/>
+
+        <button id='timerResetButton'>Reset</button>
+        <button onclick='settingsOn()' id='settingButton'>Settings</button>
+
+      </div>
+
+
+  </div>
+
+  <!-- Application Settings SCREEN #################################### -->
+  <div id="settings_div" class="main-div">
+    <h1 id="settings">Settings</h1>
+
+    <div id ='settingButton_div' class='settingButton-div'>
+      <button id='easyButton'>Easy</button>
+      <button id='mediumButton'>Medium</button>
+      <button id='hardButton'>Hard</button>
+      <button id="backButton" onclick="settingsOff()">< Back</button>
+    </div>
+    <div id ='info_div' class='info-div'>
+
+      <h1>Easy</h1>
 
 
     </div>
 
-    <div id="user_div" class="loggedin-div">
-      <h1 id="user_para">loading...</h1>
 
-      <div id = "timerBox" class = "timerBox-div"><p id="timerDisplay">READY TO START!</p></div>
-
-      <button id='timerButton'>Start</button>
-      <button id='timerStopButton'>Stop</button>
-      <button id='timerResetButton'>Reset</button>
-
-      <input name="timer" type ="number" id ="inputTimer"/>
-
-      <button onclick="logout()">Logout</button>
     </div>
 
 
@@ -65,6 +102,7 @@
 <script src="index.js"></script>
 <script src="sound.js"></script>
 <script src="timer.js"></script>
+<script src="settings.js"></script>
 
 
   </body>
