@@ -61,7 +61,8 @@ input, button {
   width: 500px;
   /* height: 500px; */
   margin: 0px auto;
-  margin-top: 150px;
+  /* margin-top: 150px; */
+  margin-top: 5%;
   padding: 15px;
   display: none;
   background: #fff;
@@ -124,13 +125,12 @@ input, button {
 
 /*BUTTON AREA*/
 .button-div {
-//button area
 background: #fff;
 color: #fff;
 /* border: 1px inset #efefef; */
 border-radius: 5px;
-padding: 15px;
-margin: 25px;
+padding: 1%;
+margin: 1%;
 display: inline-block;
 width: 80%;
 text-align: center;
