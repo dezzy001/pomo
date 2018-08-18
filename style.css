@@ -20,17 +20,18 @@ input, button {
   border-radius: 50%;
   border-color: orange transparent transparent;
   animation: spin 2s linear infinite;
-  position: fixed;
-  margin-top: 55px;
+  position: absolute;
   display: none;
-  /* top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; */
-  left: 47%;
-
+  top: auto;
+  left: 50%;
+  /* set margin left my radius to center the div (make cnetroid at middle of div) */
+  margin-left: -25px;
+  margin-top: 10px;
+  right: auto;
+  bottom: auto;
 
 }
+
   @keyframes spin {
     100%{
       transform: rotate(360deg);
@@ -259,7 +260,27 @@ transition: 0.3s;
 
 
 /* for devices smaller than the given pixel */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
+  .loader-div {
+    border: 5px solid;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-color: orange transparent transparent;
+    animation: spin 2s linear infinite;
+    position: absolute;
+
+    display: none;
+    /* set margin left my radius to center the div (make cnetroid at middle of div) */
+    margin-left: -15px;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+
+
+  }
+
   .topnav {
       background-color: #333;
       overflow: hidden;
