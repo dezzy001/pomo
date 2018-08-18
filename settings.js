@@ -7,13 +7,13 @@ var hardButton = document.getElementById('hardButton');
 var loaderDiv = document.getElementById('loader_div');
 
 easyButton.addEventListener("click",function(){
-  info_div.style.borderColor = "#21c900";
+  info_div.style.borderColor = "rgba(33, 201, 0, 0.5)";
 });
 mediumButton.addEventListener("click",function(){
-  info_div.style.borderColor = "#ff9000";
+  info_div.style.borderColor = "rgba(255, 144, 0, 0.5)";
 });
 hardButton.addEventListener("click",function(){
-  info_div.style.borderColor = "#c90000";
+  info_div.style.borderColor = "rgba(230, 0, 0, 0.7)";
 });
 
 

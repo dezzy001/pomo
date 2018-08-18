@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="style.css">
+<!-- including goole icons and google font -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
   <head>
     <meta charset="UTF-8">
     <!-- view port allows responsiveness in mobile -->
@@ -43,7 +47,7 @@
         <input onkeypress="inputFieldEnter('create_button')" type="password" placeholder="Password..." id="password_field_create" />
         <button id='create_button' onclick="create()">Create!</button>
 
-      <button id="backButton" onclick="back()">< Back</button>
+      <button id="backButton" onclick="back()">Back</button>
     </div>
 
     <!-- Application SCREEN ####################################### -->
@@ -55,13 +59,15 @@
       </div>
 
       <div id ='button_div' class='button-div'>
-        <button id='timerButton' class='userButton'>Start</button>
-        <button id='timerStopButton' class='userButton'>Stop</button>
+        <div id='timerButton' class='userButton'><i class="material-icons"> play_arrow </i></div>
+        <div id='timerStopButton' class='userButton'><i class="material-icons"> stop </i></div>
+        <div id='timerResetButton' class='userButton'><i class="material-icons"> replay </i></div>
 
+        <div onclick='settingsOn()' id='settingButton' class='userButton'>
+          <i class="material-icons">settings</i>
+        </div>
         <!-- <input name="timer" value='5' type ="number" id ="inputTimer"/> -->
 
-        <button id='timerResetButton' class='userButton'>Reset</button>
-        <button onclick='settingsOn()' id='settingButton' class='userButton'>Settings</button>
 
       </div>
 
@@ -71,22 +77,22 @@
   <!-- Application Settings SCREEN #################################### -->
   <div id="settings_div" class="main-div">
     <h1 id="settings">Settings</h1>
-
-    <div id ='settingButton_div' class='settingButton-div'>
-      <button id='easyButton'>Easy</button>
-      <button id='mediumButton'>Medium</button>
-      <button id='hardButton'>Hard</button>
-      <button id="backButton" onclick="settingsOff()">< Back</button>
-    </div>
     <div id ='info_div' class='info-div'>
+      insert content here...
+    </div>
+      <div id ='settingButton_div' class='settingButton-div'>
+        <div id='easyButton' class='settingButtons'>Easy</div>
+        <div id='mediumButton' class='settingButtons'>Medium</div>
+        <div id='hardButton' class='settingButtons'>Hard</div>
 
-      <h1>Easy</h1>
+        <!-- <button id='easyButton' class='settingButtons'>Easy</button>
+        <button id='mediumButton' class='settingButtons'>Medium</button>
+        <button id='hardButton' class='settingButtons'>Hard</button> -->
 
-
+        <button id="backButton" onclick="settingsOff()">Back</button>
+      </div>
     </div>
 
-
-    </div>
 
     <!-- loading bar (circle) -->
 
