@@ -25,14 +25,16 @@ input, button {
   border-color: orange transparent transparent;
   animation: spin 2s linear infinite;
   position: fixed;
-  display: none;
-  top: auto;
+  display: inline-block;
+  top: 50%;
   left: 50%;
-  /* set margin left my radius to center the div (make cnetroid at middle of div) */
+  /*subtract margin by radius to center */
   margin-left: -25px;
-  margin-top: 10px;
-  right: auto;
-  bottom: auto;
+  /* set margin left my radius to center the div (make cnetroid at middle of div) */
+  /* margin-left: -25px;
+  margin-top: 10px; */
+  /* right: auto;
+  bottom: auto; */
 
 }
 
@@ -168,7 +170,6 @@ input, button {
   transition: 0.3s;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
-
 }
 
 .userButton {
@@ -203,7 +204,7 @@ input, button {
 
   background: #25272b;
   color: #fff;
-  border: 1px inset #efefef;
+  border: 2px inset #efefef;
   border-radius: 5px;
   padding: 15px;
   margin: 3%;
@@ -221,7 +222,7 @@ input, button {
 /*##################### Settings #################*/
 .settingButton-div{
   width: 40%;
-  height: 70%;
+
   display: inline-block;
   /* float: right; */
   /* float: left; */
@@ -230,12 +231,14 @@ input, button {
   text-align: center;
 }
 .info-div{
-
+  height: 100%;
+  width: 40%;
   border-radius: 15px;
-  display: inline;
+  display: inline-block;
   float: left;
   padding: 15px;
   border: 2px solid #cecece;
+  text-align: left;
 }
 .main-div .settingButtons {
   background: #fff;
@@ -254,21 +257,21 @@ input, button {
   -moz-transition: 0.3s;
 }
 .main-div #easyButton:hover{
-  background: rgba(33, 201, 0, 0.2);
-  color: rgba(33, 201, 0, 0.8);
-  border: 2px solid rgba(33, 201, 0, 0.8);
+  background: rgba(33, 201, 0, 0.2)!important;
+  color: rgba(33, 201, 0, 0.8)!important;
+  border: 2px solid rgba(33, 201, 0, 0.8)!important;
 }
 
 .main-div #mediumButton:hover{
-  background: rgba(255, 144, 0, 0.2);
-  color: rgba(255, 144, 0, 0.8);
-  border: 2px solid rgba(255, 144, 0, 0.8);
+  background: rgba(255, 144, 0, 0.2)!important;
+  color: rgba(255, 144, 0, 0.8)!important;
+  border: 2px solid rgba(255, 144, 0, 0.8)!important;
 }
 
 .main-div #hardButton:hover{
-  background: rgba(230, 0, 0, 0.2);
-  color: rgba(230, 0, 0, 0.8);
-  border: 2px solid rgba(230, 0, 0, 0.7);
+  background: rgba(230, 0, 0, 0.2)!important;
+  color: rgba(230, 0, 0, 0.8)!important;
+  border: 2px solid rgba(230, 0, 0, 0.7)!important;
 
 }
 
@@ -286,7 +289,7 @@ input, button {
     animation: spin 2s linear infinite;
     position: fixed;
 
-    display: none;
+    display: inline-block;
     /* set margin left my radius to center the div (make cnetroid at middle of div) */
     margin-left: -15px;
     top: 50%;
