@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <!-- including goole icons and google font -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
 <!-- my favicon is just a png from google icons and used an online png -> ico converter -->
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 
   <head>
     <meta charset="UTF-8">
     <!-- view port allows responsiveness in mobile -->
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pomo</title>
   </head>
+
+  <!-- ########################### Body ############################# -->
   <body>
 
 
 
-    <!-- <a href="https://dezzy001.github.io/">Check out my blogs here!</a> -->
+
     <!-- Top navagation bar -->
     <div class="topnav">
       <!-- <a class="active" href="#home">Home</a> -->
@@ -30,71 +31,79 @@
       <!-- <a href="#about">About</a> -->
     </div>
 
+    <!-- GRID ################################## -->
+    <div class="grid-container top-offset">
 
-    <!-- LOGIN SCREEN ####################################### -->
-    <div id="login_div" class="main-div">
-      <h3>PomoApp</h3>
+      <!-- Empty div to keep left margin clear -->
+      <!-- <div></div> -->
 
-        <input onkeypress="inputFieldEnter('login_button')" type="email" placeholder="Email..." id="email_field" />
-        <input onkeypress="inputFieldEnter('login_button')" type="password" placeholder="Password..." id="password_field" />
-        <button id="login_button" onclick="login()">Login</button>
+      <div class="show-div item-mid">
+        <!-- LOGIN SCREEN ####################################### -->
+        <div id="login_div" class="main-div">
+          <h3>PomoApp</h3>
 
-      <button onclick="create_div()">Create an Account</button>
-      <button onclick="skip()">Skip Login...</button>
-    </div>
+            <input onkeypress="inputFieldEnter('login_button')" type="email" placeholder="Email..." id="email_field" />
+            <input onkeypress="inputFieldEnter('login_button')" type="password" placeholder="Password..." id="password_field" />
+            <button id="login_button" onclick="login()">Login</button>
 
-    <!-- Create accoutn SCREEN ####################################### -->
-    <div id="create_div" class="main-div">
-      <h3>PomoApp Account Creation</h3>
+          <button onclick="create_div()">Create an Account</button>
+          <button onclick="skip()">Skip Login...</button>
+        </div>
 
-        <input onkeypress="inputFieldEnter('create_button')" type="email" placeholder="Email..." id="email_field_create" />
-        <input onkeypress="inputFieldEnter('create_button')" type="password" placeholder="Password..." id="password_field_create" />
-        <button id='create_button' onclick="create()">Create!</button>
+        <!-- Create accoutn SCREEN ####################################### -->
+        <div id="create_div" class="main-div">
+          <h3>PomoApp Account Creation</h3>
 
-      <button id="backButton" onclick="back()">Back</button>
-    </div>
+            <input onkeypress="inputFieldEnter('create_button')" type="email" placeholder="Email..." id="email_field_create" />
+            <input onkeypress="inputFieldEnter('create_button')" type="password" placeholder="Password..." id="password_field_create" />
+            <button id='create_button' onclick="create()">Create!</button>
 
-    <!-- Application Timer SCREEN ####################################### -->
-    <div id="user_div" class="loggedin-div">
-      <!-- <h1 id="user_para">loading...</h1> -->
+          <button id="backButton" onclick="back()">Back</button>
+        </div>
 
-      <div id = "timerBox" class = "timerBox-div">
-        <p id="timerDisplay">LOADING...</p>
+        <!-- Application Timer SCREEN ####################################### -->
+        <div id="user_div" class="loggedin-div">
+          <!-- <h1 id="user_para">loading...</h1> -->
+
+          <div id = "timerBox" class = "timerBox-div">
+            <p id="timerDisplay">LOADING...</p>
+          </div>
+
+          <div id ='button_div' class='button-div'>
+            <div id='timerButton' class='userButton'><i class="material-icons"> play_arrow </i></div>
+            <div id='timerStopButton' class='userButton'><i class="material-icons"> stop </i></div>
+            <div id='timerResetButton' class='userButton'><i class="material-icons"> replay </i></div>
+            <div id='timerSettingButton' class='userButton'><i class="material-icons">settings</i></div>
+            <!-- <input name="timer" value='5' type ="number" id ="inputTimer"/> -->
+          </div>
       </div>
 
-      <div id ='button_div' class='button-div'>
-        <div id='timerButton' class='userButton'><i class="material-icons"> play_arrow </i></div>
-        <div id='timerStopButton' class='userButton'><i class="material-icons"> stop </i></div>
-        <div id='timerResetButton' class='userButton'><i class="material-icons"> replay </i></div>
-        <div id='timerSettingButton' class='userButton'><i class="material-icons">settings</i></div>
-        <!-- <input name="timer" value='5' type ="number" id ="inputTimer"/> -->
-      </div>
+      <!-- Application Settings SCREEN #################################### -->
+      <div id="settings_div" class="main-div">
+        <h1 id="settings">Settings</h1>
+        <div class="grid-container">
+
+          <div id ='info_div' class='info-div item2-left'>
+            <h3 id='descriptionTitle'>loading...</h3>
+            <p id='description'>loading...</p>
+          </div>
+
+          <div id ='settingButton_div' class='settingButtons-div item2-right'>
+            <div id='easyButton' class='settingButtons'>Easy</div>
+            <div id='mediumButton' class='settingButtons'>Medium</div>
+            <div id='hardButton' class='settingButtons'>Hard</div>
+            <button id="backButton" onclick="settingsOff()">Back</button>
+          </div>
+
+        </div>
 
 
-  </div>
 
-  <!-- Application Settings SCREEN #################################### -->
-  <div id="settings_div" class="main-div">
-    <h1 id="settings">Settings</h1>
-    <div id ='info_div' class='info-div'>
-      <h3 id='descriptionTitle'>loading...</h3>
-      <p id='description'>loading...</p>
-    </div>
-      <div id ='settingButton_div' class='settingButton-div'>
-        <div id='easyButton' class='settingButtons'>Easy</div>
-        <div id='mediumButton' class='settingButtons'>Medium</div>
-        <div id='hardButton' class='settingButtons'>Hard</div>
+        </div>
 
-        <!-- <button id='easyButton' class='settingButtons'>Easy</button>
-        <button id='mediumButton' class='settingButtons'>Medium</button>
-        <button id='hardButton' class='settingButtons'>Hard</button> -->
-
-        <button id="backButton" onclick="settingsOff()">Back</button>
       </div>
     </div>
 
-
-    <!-- loading bar (circle) -->
 
     <div id="loader_div" class="loader-div"></div>
     <!-- ####################Scripts ####################-->
