@@ -26,7 +26,7 @@ input, button {
   grid-gap: 1%;
   padding: 1%;
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 60%;
 }
  .grid-container > .show-div {
   background-color: #ffffff;
@@ -126,7 +126,7 @@ input, button {
 /* Main div (i.e basic format for each div) ##########################*/
 .main-div {
   padding: 15px;
-  display: none;
+  /* display: none; */
   text-align: center;
 }
 
@@ -220,14 +220,17 @@ input, button {
 }
 
 
+
+
 /*##################### Settings #################*/
 .settingButton-div{
-  display: inline-block;
+  display: block;
   padding: 15px;
   text-align: center;
 }
 .info-div{
-
+  width:auto;
+  display: block;
   padding: 15px;
   border: 2px solid #cecece;
   border-radius: 15px;
@@ -243,7 +246,7 @@ input, button {
 
   padding: 15px;
   margin: 10px;
-  display: inline-block;
+  display: block;
   width:60%;
   transition: 5s;
   -webkit-transition: 0.3s;
@@ -274,6 +277,12 @@ input, button {
 /* for devices smaller than the given pixel */
 @media screen and (max-width: 550px) {
 
+  /* .timerDisplay-div {
+   font-size: 4.5vw;
+  } */
+  .grid-container {
+    max-width: 100%;
+  }
 
   .topnav {
       background-color: #333;
@@ -294,8 +303,9 @@ input, button {
   }
 
   .userButton {
-    margin-left: 8px;
-    margin-right: 8px;
+    padding-left: 3px;
+    padding-right: 3px;
+
   }
 
 }
