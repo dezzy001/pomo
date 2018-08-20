@@ -281,6 +281,9 @@ input, button {
    font-size: 4.5vw;
   } */
   .grid-container {
+
+    padding: 5px;
+    margin: 0 auto;
     max-width: 100%;
   }
 
