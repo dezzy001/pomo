@@ -126,7 +126,7 @@ input, button {
 /* Main div (i.e basic format for each div) ##########################*/
 .main-div {
   padding: 15px;
-  /* display: none; */
+  display: none;
   text-align: center;
 }
 
