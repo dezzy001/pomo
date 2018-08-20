@@ -1,4 +1,3 @@
-//javascript in charge of all the logic
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {

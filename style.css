@@ -25,6 +25,8 @@ input, button {
   grid-template-columns: auto auto auto;
   grid-gap: 1%;
   padding: 1%;
+  margin: 0 auto;
+  max-width: 1000px;
 }
  .grid-container > .show-div {
   background-color: #ffffff;
@@ -85,14 +87,11 @@ input, button {
 .topnav {
     background-color: #333;
     overflow: hidden;
-
 }
-
 .topnav #logout_ele {
   background-color: #d13030;
   text-align: center;
   vertical-align: middle;
-
 }
 .topnav #logout_ele:hover {
   background-color: #ff5b5b;
@@ -102,7 +101,6 @@ input, button {
   background-color: #333;
   color: white;
 }
-
 /* Style the links inside the navigation bar */
 .topnav a, .topnav p {
     float: left;
@@ -118,7 +116,6 @@ input, button {
     background-color: #ddd;
     color: black;
 }
-
 /* Add a color to the active/current link */
 .topnav a.active {
     background-color: #4CAF50;
@@ -127,24 +124,12 @@ input, button {
 
 
 /* Main div (i.e basic format for each div) ##########################*/
-.main-div, .loggedin-div {
-  /* width: 60%; */
-  /* min-width: 400px;
-  max-width: 500px; */
-
-  /* height: 500px; */
-  /* margin: 0px auto; */
-  /* margin-top: 150px; */
-  /* margin-top: 5%; */
+.main-div {
   padding: 15px;
   display: none;
-  /* background: #fff; */
-  /* border-radius: 10px; */
   text-align: center;
-
-  /* box-shadow: 1px 1px 1px 1px #cecece; */
-
 }
+
 .main-div input {
   display: inline-block;
   border: 1px solid #ccc;
@@ -152,7 +137,7 @@ input, button {
   background: #fff;
   padding: 15px;
   outline: none;
-  width: 80%;
+  width: 60%;
   margin-bottom: 20px;
   transition: 0.3s;
   -webkit-transition: 0.3s;
@@ -160,6 +145,7 @@ input, button {
 }
 .main-div input:focus {
   border: 1px solid #777;
+
 }
 .main-div button {
   background: #5d8ffc;
@@ -169,12 +155,12 @@ input, button {
   padding: 15px;
   margin: 10px;
   display: inline-block;
-  width: 80%;
+  width: 60%;
   transition: 0.3s;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
 }
-.main-div button:hover, .loggedin-div button:hover {
+.main-div button:hover {
   background: #fff;
   color: #5d8ffc;
   border: 1px solid #5d8ffc;
@@ -194,82 +180,54 @@ input, button {
 }
 
 
-/*###################BUTTON AREA#######################*/
+/*################### Main app page #######################*/
 .button-div {
   background: #fff;
-  /* padding: 1%;
-  margin: 1%; */
   overflow: auto;
   display: inline-block;
-  /* width: 100%; */
   transition: 0.3s;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
 }
 
 .userButton {
-  font-size: 15px;
-  font-weight: 900;
   display: inline-block;
-  /* border-radius: 50%; */
-  /* border: 2px solid rgba(198, 198, 198, 0.9); */
   color: rgba(155, 155, 155, 1);
-  width: 50px;
-  height: 50px;
-  /* line height dictates the vertical align */
   text-align: center;
-  vertical-align: middle;
-  line-height: 65px;
-
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-top: 25px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
+
 .userButton:hover {
-  /* background: rgba(93, 143, 252,0.9); */
   color: rgba(93, 143, 252,0.9);;
-  /* border: 2px solid rgba(93, 143, 252,0.9); */
   cursor: pointer;
-
 }
 
-
-
-/*#####################TIMER AREA#######################*/
+/*timer area---*/
 .timerBox-div {
-
   background: #25272b;
   color: #fff;
   border: 2px inset #efefef;
   border-radius: 5px;
-  padding: 15px;
-  margin: 3%;
-  display: inline-block;
+  display: block;
   width: 80%;
-  text-align: center;
-
-  box-shadow: 1px 1px 1px #cecece;
-  transition: 0.3s;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
+  margin: auto;
+  box-shadow: 1.5px 1.5px 1.5px #cecece;
+  transition: 5.3s;
+  -webkit-transition: 5.3s;
+  -moz-transition: 5.3s;
 }
 
 
 /*##################### Settings #################*/
 .settingButton-div{
-  /* width: 40%; */
   display: inline-block;
-  /* float: right; */
-  /* float: left; */
   padding: 15px;
-  /* border: 1px solid #21c900; */
   text-align: center;
 }
 .info-div{
-  /* height: 100%;
-  width: 40%;
 
-  display: inline-block;
-  float: left; */
   padding: 15px;
   border: 2px solid #cecece;
   border-radius: 15px;
@@ -286,7 +244,7 @@ input, button {
   padding: 15px;
   margin: 10px;
   display: inline-block;
-  width: 80%;
+  width:60%;
   transition: 5s;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -335,5 +293,9 @@ input, button {
       font-size: 12px;
   }
 
+  .userButton {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
 
 }
