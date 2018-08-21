@@ -30,23 +30,25 @@ input, button {
   width: 65%;
 }
 
-.grid-container {
-  /* display: grid; */
-  display:inline-block;
+.flex-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
   grid-template-columns: 100%;
   grid-gap: 1%;
   padding: 1%;
   margin: 0 auto;
   width: 100%;
+  /* max-width: 1000px;
+  min-width: 800px; */
 }
 
- .grid-container > .show-div {
+ .flex-container > .show-div {
   background-color: #ffffff;
   text-align: center;
   width: 100%;
   padding: 20px 0;
   box-shadow: 1px 1px 1px 1px #cecece;
-  margin-bottom: 10px;
   /* min-width: 100px; */
   border-radius: 10px;
 }
@@ -190,7 +192,6 @@ input, button {
 
 
 /*################### Main app page #######################*/
-/* timer buttons */
 .button-div {
   background: #fff;
   overflow: auto;
@@ -205,8 +206,8 @@ input, button {
   color: rgba(155, 155, 155, 1);
   text-align: center;
   margin-top: 25px;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .userButton:hover {
@@ -302,17 +303,13 @@ input, button {
   .grid-container-container{
     grid-template-columns: 100%;
     width: 95%;
-    grid-gap: 0px;
+    grid-gap: 1%;
 
   }
   .grid-container {
     min-width: 50px;
     width: 98%;
   }
-
-  .grid-container > .show-div {
-   margin-bottom: 8px;
- }
 
   /* left, middle or right positioned div */
   .item-left {
@@ -346,8 +343,6 @@ input, button {
   .userButton {
     padding-left: 3px;
     padding-right: 3px;
-    margin-right: 8px;
-    margin-left: 8px;
 
   }
 

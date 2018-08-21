@@ -29,77 +29,81 @@
     </div>
 
     <!-- GRID ################################## -->
-    <div class="grid-container top-offset">
+    <div class="grid-container-container top-offset">
 
+      <!-- left grid ########################################### -->
+      <div class="grid-container item-left">
+        <div class="show-div">
+          <!-- LOGIN SCREEN ####################################### -->
+          <div id="login_div" class="main-div">
+            <h3>PomoApp</h3>
 
-      <!-- @@@@@@@@@@@@@@@@ Middle column @@@@@@@@@@@@@@@@@@@@@@@ -->
-      <div class="show-div item-mid">
-        <!-- LOGIN SCREEN ####################################### -->
-        <div id="login_div" class="main-div">
-          <h3>PomoApp</h3>
+              <input onkeypress="inputFieldEnter('login_button')" type="email" placeholder="Email..." id="email_field" />
+              <input onkeypress="inputFieldEnter('login_button')" type="password" placeholder="Password..." id="password_field" />
+              <button id="login_button" onclick="login()">Login</button>
 
-            <input onkeypress="inputFieldEnter('login_button')" type="email" placeholder="Email..." id="email_field" />
-            <input onkeypress="inputFieldEnter('login_button')" type="password" placeholder="Password..." id="password_field" />
-            <button id="login_button" onclick="login()">Login</button>
-
-          <button onclick="create_div()">Create an Account</button>
-          <button onclick="skip()">Skip Login...</button>
-        </div>
-
-        <!-- Create accoutn SCREEN ####################################### -->
-        <div id="create_div" class="main-div">
-          <h3>PomoApp Account Creation</h3>
-
-            <input onkeypress="inputFieldEnter('create_button')" type="email" placeholder="Email..." id="email_field_create" />
-            <input onkeypress="inputFieldEnter('create_button')" type="password" placeholder="Password..." id="password_field_create" />
-            <button id='create_button' onclick="create()">Create!</button>
-
-          <button id="backButton" onclick="back()">Back</button>
-        </div>
-
-        <!-- Application TIMER SCREEN ####################################### -->
-        <div id="user_div"  class="main-div">
-
-          <div id = "timerBox" class = "timerBox-div">
-            <p id="timerDisplay" class="timerDisplay-div">LOADING...</p>
+            <button onclick="create_div()">Create an Account</button>
+            <button onclick="skip()">Skip Login...</button>
           </div>
 
-          <div id ='button_div' class='button-div'>
-            <div id='timerButton' class='userButton'><i class="material-icons"> play_arrow </i></div>
-            <div id='timerStopButton' class='userButton'><i class="material-icons"> stop </i></div>
-            <div id='timerResetButton' class='userButton'><i class="material-icons"> replay </i></div>
-            <div id='timerSettingButton' class='userButton'><i class="material-icons">settings</i></div>
-            <!-- <input name="timer" value='5' type ="number" id ="inputTimer"/> -->
+          <!-- Create accoutn SCREEN ####################################### -->
+          <div id="create_div" class="main-div">
+            <h3>PomoApp Account Creation</h3>
+
+              <input onkeypress="inputFieldEnter('create_button')" type="email" placeholder="Email..." id="email_field_create" />
+              <input onkeypress="inputFieldEnter('create_button')" type="password" placeholder="Password..." id="password_field_create" />
+              <button id='create_button' onclick="create()">Create!</button>
+
+            <button id="backButton" onclick="back()">Back</button>
           </div>
+
+          <!-- Application TIMER SCREEN ####################################### -->
+          <div id="user_div"  class="main-div">
+
+            <div id = "timerBox" class = "timerBox-div">
+              <p id="timerDisplay" class="timerDisplay-div">LOADING...</p>
+            </div>
+
+            <div id ='button_div' class='button-div'>
+              <div id='timerButton' class='userButton'><i class="material-icons"> play_arrow </i></div>
+              <div id='timerStopButton' class='userButton'><i class="material-icons"> stop </i></div>
+              <div id='timerResetButton' class='userButton'><i class="material-icons"> replay </i></div>
+              <div id='timerSettingButton' class='userButton'><i class="material-icons">settings</i></div>
+              <!-- <input name="timer" value='5' type ="number" id ="inputTimer"/> -->
+            </div>
+        </div>
+
+        <!-- Application Settings SCREEN #################################### -->
+        <div id="settings_div" class="main-div">
+          <h1 id="settings">Settings</h1>
+          <div class="grid-container item">
+
+              <div id ='info_div' class='info-div'>
+                <h3 id='descriptionTitle'>loading...</h3>
+                <p id='description'>loading...</p>
+              </div>
+
+              <div id ='settingButton_div' class='settingButtons-div'>
+                <div id='easyButton' class='settingButtons'>Easy</div>
+                <div id='mediumButton' class='settingButtons'>Medium</div>
+                <div id='hardButton' class='settingButtons'>Hard</div>
+                <button id="backButton" onclick="settingsOff()">Back</button>
+              </div>
+
+
+
+          </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Application Settings SCREEN #################################### -->
-      <div id="settings_div" class="main-div">
-        <h1 id="settings">Settings</h1>
-        <div class="grid-container">
-
-          <div id ='info_div' class='info-div item2-left'>
-            <h3 id='descriptionTitle'>loading...</h3>
-            <p id='description'>loading...</p>
-          </div>
-
-          <div id ='settingButton_div' class='settingButtons-div item2-right'>
-            <div id='easyButton' class='settingButtons'>Easy</div>
-            <div id='mediumButton' class='settingButtons'>Medium</div>
-            <div id='hardButton' class='settingButtons'>Hard</div>
-            <button id="backButton" onclick="settingsOff()">Back</button>
-          </div>
-
+      <!-- Right grid -->
+      <div class="grid-container top-offset item-right">
+        <div class="show-div">
+          Level: 0
         </div>
-
-
-
-        </div>
-
-      </div>
-
-    </div>
-
+  </div>
 
     <div id="loader_div" class="loader-div"></div>
     <!-- ####################Scripts ####################-->

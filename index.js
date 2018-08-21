@@ -1,3 +1,6 @@
+// html div elements
+
+
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
