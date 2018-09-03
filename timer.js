@@ -44,7 +44,7 @@ var string_fin = "FINNISHED";
 var string_restart = "RESTARTED";
 var string_stop = "STOPPED";
 var string_loading = "LOADING..."
-
+var string_break = "BREAK TIME!"
 //set interval function
 var t = function(){}
 
@@ -62,20 +62,14 @@ function changeText(string1,string2){
 //timer functions------------------------------------
 
 
-function startTimer(timerButton,min){
-  //code commented below is when you have input box
-  // if(inputTimer.value == ""){
-  //   display.innerHTML = "ENTER TIME";
-  // }else
+function startTimer(min){
+
   if(!clicked){
 
     display.innerHTML = "STARTED";
     clicked = true;
-    //timerButton.textContent = 'Study';
-    timerButton.disabled = true;
-    timer(min);
-    timerStopButton.disabled = false;
-    timerResetButton.disabled = false;
+    timer(min,true);
+
   }
 
 }
@@ -86,28 +80,35 @@ function stopTimer(){
   changeText(string_stop,string_ready);
 }
 
+//the timer has completed, play beep sound and start the break timer
 function endTimer(){
   clicked = false;
   clearInterval(t);
   changeText(string_fin,string_ready);
   beep();
-
 }
+
 
 function resetTimer(min){
   // clicked = false;
   display.innerHTML = string_restart;
   clearInterval(t);
-  timer(min);
+  timer(min,true);
 }
 
+function breakTimer(min){
+  clearInterval(t);
+  timer(min,false);
+  changeText(string_fin,string_break);
+  beep();
+}
+
+
+
 //function which controls the actual logic of the timer (input as minutes)
-function timer(min){
-
-
+function timer(min,break_state){
     //collect input from somewhere
     // var min = inputTimer.value;
-
     // var min = 0.05;//test with constant value
 
     var sec = min*60 - 1;
@@ -121,7 +122,11 @@ function timer(min){
       }
         sec--;
         if (sec < 0) {
-          endTimer();
+          if(break_state == true){
+            breakTimer(5);//if its a break, then do a 5 min timer
+          }else{
+            endTimer();//end the timer if break time is over
+          }
         }
     }, 1000);
 }

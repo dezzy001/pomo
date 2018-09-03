@@ -56,7 +56,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       //Clicking button events for timer---------------------------------
       timerButton.addEventListener("click", function(){
         if(clicked == false && loading == false){
-          startTimer(timerButton,currentMaxMin);
+          startTimer(currentMaxMin);
         }
 
       });
