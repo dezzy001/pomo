@@ -8,7 +8,6 @@ function newUserData(uid,email,name,bool_resetFields){
   //has a bool option to reset the users data to default values
 
   var currDate = getCurrDate();
-
   //default userField
   var userFields = {
             "email": email,
@@ -30,8 +29,6 @@ var userdb = db.child("users/"+uid);
     }
   });
 }
-
-
 
 function setDifficultyData(uid, string_difficulty){
     //ADD LOADING DIV HERE

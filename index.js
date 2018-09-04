@@ -1,14 +1,15 @@
 // html div elements
 //global user var, can use in other classes, but need to check if null
 var uid = null;
-
+//sett up pomoCount progress bar (global variable)
+var pomoProgressBar = null;
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 
     //when logged in ########################################
     if(user != null){
-      //login setup ##################################################
+      //login setup #########################################
       loadingBarOff();
       document.getElementById("user_div").style.display = "block";
       document.getElementById("login_div").style.display = "none";
@@ -36,6 +37,8 @@ firebase.auth().onAuthStateChanged(function(user) {
       var userLastLoginDatedb = db.child("users/"+uid+"/loginDate");
       var currentMaxMin; // in mins
 
+      //setup the progress bar circle for pomocount
+      fillCounterShadow();
       //update the last time user has logged in date-----
       var todaysDate = getCurrDate();
       userLastLoginDatedb.once('value').then(function(snapshot){
@@ -47,7 +50,6 @@ firebase.auth().onAuthStateChanged(function(user) {
           }else{
             //else reset the pomo count to 0
             updatePomoCountData(uid,0);
-
           }
           // update last time logged in date
           setLastTimeLoginData(uid, todaysDate);
@@ -111,8 +113,18 @@ firebase.auth().onAuthStateChanged(function(user) {
       userPomoCountdb.on('value',function(snapshot){
         if(snapshot.exists()){
           var pomoCount = snapshot.val();
-          // difficultyFormat(difficulty);
+          var pomoCountString = getPomoCountString(pomoCount);
           displayCount(pomoCount);
+          
+          if(pomoCount==0){
+            startPoint = pomoCountInPercentage(pomoCount);
+          }else{
+            startPoint = pomoCountInPercentage(pomoCount-1);
+          }
+
+          endPoint = pomoCountInPercentage(pomoCount);
+          pomoProgressBar = setInterval(fillCounter,pomoCountProgressSpeed,pomoCountString);
+
         }
       });
 
