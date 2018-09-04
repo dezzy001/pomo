@@ -51,11 +51,21 @@ var t = function(){}
 
 //generic functions!!----------------------------------------
 //change text to string1 then 2 second later, changes it to string2
-function changeText(string1,string2){
+
+function changeText(string1){
   display.innerHTML=string1;
+}
+
+function changeTextTwice(string1,string2){
+  changeText(string1);
   setTimeout(function(){
-    display.innerHTML= string2;
+    changeText(string2);
   }, 1000);
+}
+
+function changeBgColour(string_color){
+  //changes the background colour of the timer box div
+  timerBox.style.background = string_color;
 }
 
 
@@ -77,30 +87,42 @@ function startTimer(min){
 function stopTimer(){
   clicked = false;
   clearInterval(t);
-  changeText(string_stop,string_ready);
+  changeTextTwice(string_stop,string_ready);
+  changeBgColour("#25272b");
 }
 
-//the timer has completed, play beep sound and start the break timer
+//the break has ended, set everything to default (ready to start state)
 function endTimer(){
   clicked = false;
   clearInterval(t);
-  changeText(string_fin,string_ready);
+  changeTextTwice(string_fin,string_ready);
+  changeBgColour("#25272b");
   beep();
+  // alert("Break timer over!");
 }
 
 
 function resetTimer(min){
   // clicked = false;
   display.innerHTML = string_restart;
+  changeBgColour("#25272b");
   clearInterval(t);
   timer(min,true);
 }
 
 function breakTimer(min){
+  //incrementPomoCount if finnished one pomo, and then break time starts
+  incrementPomoCountData(uid,1);//increment by 1
+
   clearInterval(t);
   timer(min,false);
-  changeText(string_fin,string_break);
+  changeText(string_break);
+  changeBgColour("blue");
   beep();
+
+
+
+
 }
 
 

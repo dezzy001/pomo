@@ -1,5 +1,6 @@
 // html div elements
-
+//global user var, can use in other classes, but need to check if null
+var uid = null;
 
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -20,16 +21,43 @@ firebase.auth().onAuthStateChanged(function(user) {
       //login data management #####################################
       var displayName = user.displayName;
       var email_id = user.email;
-      var uid = user.uid;
-      newUserData(uid, email_id,displayName);
+      uid = user.uid;
+      newUserData(uid, email_id,displayName,false);
+
+      newUserData(uid, email_id,displayName,true); // THIS IS to refresh user data
+
       // document.getElementById("user_para").innerHTML = "Welcome " + email_id;
       document.getElementById("welcome_ele").style.display ="block";
       document.getElementById("welcome_ele").innerHTML= email_id;
 
       //logged in variables
       var userDifficultydb = db.child("users/"+uid+"/difficulty");
-
+      var userPomoCountdb = db.child("users/"+uid+"/count");
+      var userLastLoginDatedb = db.child("users/"+uid+"/loginDate");
       var currentMaxMin; // in mins
+
+      //update the last time user has logged in date-----
+      var todaysDate = getCurrDate();
+      userLastLoginDatedb.once('value').then(function(snapshot){
+        if(snapshot.exists()){
+          var firebase_date = snapshot.val();
+          var sameDate = compareDate(firebase_date);
+          if(sameDate == true){
+            //if the date is still the same as user last log in, then continue as normal
+          }else{
+            //else reset the pomo count to 0
+            updatePomoCountData(uid,0);
+
+          }
+          // update last time logged in date
+          setLastTimeLoginData(uid, todaysDate);
+
+        }else{
+          //error
+        }
+
+      });
+
 
       //timer logic ##############################################
       //initial conditions
@@ -79,6 +107,14 @@ firebase.auth().onAuthStateChanged(function(user) {
       });
 
 
+      //pomoCount logic #########################################
+      userPomoCountdb.on('value',function(snapshot){
+        if(snapshot.exists()){
+          var pomoCount = snapshot.val();
+          // difficultyFormat(difficulty);
+          displayCount(pomoCount);
+        }
+      });
 
       //settings logic #############################################
       //keep the button highlighted on the selected difficulty

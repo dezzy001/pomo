@@ -245,6 +245,7 @@ input, button {
   display: block;
   padding: 15px;
   text-align: center;
+
 }
 .info-div{
   width:auto;
@@ -253,6 +254,9 @@ input, button {
   border: 2px solid #cecece;
   border-radius: 15px;
   text-align: left;
+  transition: 1.5s;
+  -webkit-transition: 1.5s;
+  -moz-transition: 1.5s;
 }
 .main-div .settingButtons {
   background: #fff;
