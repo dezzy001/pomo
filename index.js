@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       uid = user.uid;
       newUserData(uid, email_id,displayName,false);
 
-      newUserData(uid, email_id,displayName,true); // THIS IS to refresh user data
+      // newUserData(uid, email_id,displayName,true); // THIS IS to refresh user data
 
       // document.getElementById("user_para").innerHTML = "Welcome " + email_id;
       document.getElementById("welcome_ele").style.display ="block";
