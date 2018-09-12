@@ -39,26 +39,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 
       //setup the progress bar circle for pomocount
       fillCounterShadow();
-      //update the last time user has logged in date-----
-      var todaysDate = getCurrDate();
-      userLastLoginDatedb.once('value').then(function(snapshot){
-        if(snapshot.exists()){
-          var firebase_date = snapshot.val();
-          var sameDate = compareDate(firebase_date);
-          if(sameDate == true){
-            //if the date is still the same as user last log in, then continue as normal
-          }else{
-            //else reset the pomo count to 0
-            updatePomoCountData(uid,0);
-          }
-          // update last time logged in date
-          setLastTimeLoginData(uid, todaysDate);
 
-        }else{
-          //error
-        }
+      //Constantly update the last time user has logged in date with a set interval-------------------------
+      setInterval(updateDate,CHECK_DATE_INTERVAL,userLastLoginDatedb,uid);
 
-      });
+
+
 
 
       //timer logic ##############################################
@@ -115,7 +101,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           var pomoCount = snapshot.val();
           var pomoCountString = getPomoCountString(pomoCount);
           displayCount(pomoCount);
-          
+
           if(pomoCount==0){
             startPoint = pomoCountInPercentage(pomoCount);
           }else{
@@ -124,7 +110,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
           endPoint = pomoCountInPercentage(pomoCount);
           pomoProgressBar = setInterval(fillCounter,pomoCountProgressSpeed,pomoCountString);
-
+          
         }
       });
 
