@@ -16,7 +16,7 @@ input, button {
   font-size: 16px;
 }
 
-/*###################### CSS GRID #####################*/
+/*###################### CSS main website GRID #####################*/
 .top-offset{
   margin-top: 1%;
 }
@@ -27,7 +27,8 @@ input, button {
   grid-gap: 42px;
   padding: 1%;
   margin: 0 auto;
-  width: 65%;
+  min-width: 200px;
+  max-width: 1000px;
 }
 
 .grid-container {
@@ -79,7 +80,6 @@ input, button {
   display: inline-block;
   top: 50%;
   left: 50%;
-
   /*subtract margin by radius to center */
   margin-left: -25px;
 }
@@ -95,6 +95,7 @@ input, button {
 .topnav {
     background-color: #333;
     overflow: hidden;
+
 }
 .topnav #logout_ele {
   background-color: #d13030;
@@ -360,9 +361,10 @@ input, button {
   }
 
   .topnav {
-      background-color: #333;
+      background-color: #c4c5c6;
       overflow: hidden;
-      height:28px;
+      height:48px;
+      display: hidden;
       /* max-height: 45px;
       min-height: 20px; */
   }
@@ -372,9 +374,9 @@ input, button {
       float: left;
       color: #f2f2f2;
       text-align: center;
-      padding: 7px 8px;
+      padding: 14px 16px;
       text-decoration: none;
-      font-size: 12px;
+      font-size: 17px;
   }
 
   .userButton {
