@@ -6,63 +6,57 @@ var pomoProgressBar = null;
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-
     //when logged in ########################################
-    if(user != null){
+    if (user != null) {
       //login setup #########################################
       loadingBarOff();
       document.getElementById("user_div").style.display = "block";
       document.getElementById("login_div").style.display = "none";
       document.getElementById("create_div").style.display = "none";
       document.getElementById("settings_div").style.display = "none";
-      document.getElementById("logout_ele").style.display ="block";
+      document.getElementById("logout_ele").style.display = "block";
       var user = firebase.auth().currentUser;
-
 
       //login data management #####################################
       var displayName = user.displayName;
       var email_id = user.email;
       uid = user.uid;
-      newUserData(uid, email_id,displayName,false);
+      newUserData(uid, email_id, displayName, false);
 
       // newUserData(uid, email_id,displayName,true); // THIS IS to refresh user data
 
       // document.getElementById("user_para").innerHTML = "Welcome " + email_id;
-      document.getElementById("welcome_ele").style.display ="block";
-      document.getElementById("welcome_ele").innerHTML= email_id;
+      document.getElementById("welcome_ele").style.display = "block";
+      document.getElementById("welcome_ele").innerHTML = email_id;
 
       //logged in variables
-      var userDifficultydb = db.child("users/"+uid+"/difficulty");
-      var userPomoCountdb = db.child("users/"+uid+"/count");
-      var userLastLoginDatedb = db.child("users/"+uid+"/loginDate");
+      var userDifficultydb = db.child("users/" + uid + "/difficulty");
+      var userPomoCountdb = db.child("users/" + uid + "/count");
+      var userLastLoginDatedb = db.child("users/" + uid + "/loginDate");
       var currentMaxMin; // in mins
 
       //setup the progress bar circle for pomocount
       fillCounterShadow();
 
       //Constantly update the last time user has logged in date with a set interval-------------------------
-      setInterval(updateDate,CHECK_DATE_INTERVAL,userLastLoginDatedb,uid);
-
-
-
-
+      setInterval(updateDate, CHECK_DATE_INTERVAL, userLastLoginDatedb, uid);
 
       //timer logic ##############################################
       //initial conditions
-      userDifficultydb.on('value',function(snapshot){
-        if(snapshot.exists()){
+      userDifficultydb.on("value", function(snapshot) {
+        if (snapshot.exists()) {
           var difficulty = snapshot.val();
-          if(difficulty == EASY){
+          if (difficulty == EASY) {
             currentMaxMin = difficultySettings.easy.min;
-          }else if(difficulty == MED){
+          } else if (difficulty == MED) {
             currentMaxMin = difficultySettings.medium.min;
-          }else if(difficulty == HARD){
+          } else if (difficulty == HARD) {
             currentMaxMin = difficultySettings.hard.min;
           }
 
           // grabed difficulty data from firebase!
           loading = false;
-          display.innerHTML= string_ready;
+          display.innerHTML = string_ready;
 
           //change colour of timer box border based on difficulty
           changeTimerboxBorder(difficulty);
@@ -70,54 +64,53 @@ firebase.auth().onAuthStateChanged(function(user) {
       });
 
       //Clicking button events for timer---------------------------------
-      timerButton.addEventListener("click", function(){
-        if(clicked == false && loading == false){
+      timerButton.addEventListener("click", function() {
+        if (clicked == false && loading == false) {
           startTimer(currentMaxMin);
         }
-
       });
-      timerStopButton.addEventListener("click", function(){
-        if(clicked == true && loading == false){
-            stopTimer();
+      timerStopButton.addEventListener("click", function() {
+        if (clicked == true && loading == false) {
+          stopTimer();
         }
-
       });
 
-      timerResetButton.addEventListener("click",function(){
-        if(clicked == true && loading == false){
+      timerResetButton.addEventListener("click", function() {
+        if (clicked == true && loading == false) {
           resetTimer(currentMaxMin);
         }
-
       });
 
-      timerSettingButton.addEventListener("click",function(){
+      timerSettingButton.addEventListener("click", function() {
         settingsOn();
       });
 
-
       //pomoCount logic #########################################
-      userPomoCountdb.on('value',function(snapshot){
-        if(snapshot.exists()){
+      userPomoCountdb.on("value", function(snapshot) {
+        if (snapshot.exists()) {
           var pomoCount = snapshot.val();
           var pomoCountString = getPomoCountString(pomoCount);
           displayCount(pomoCount);
 
-          if(pomoCount==0){
+          if (pomoCount == 0) {
             startPoint = pomoCountInPercentage(pomoCount);
-          }else{
-            startPoint = pomoCountInPercentage(pomoCount-1);
+          } else {
+            startPoint = pomoCountInPercentage(pomoCount - 1);
           }
 
           endPoint = pomoCountInPercentage(pomoCount);
-          pomoProgressBar = setInterval(fillCounter,pomoCountProgressSpeed,pomoCountString);
-          
+          pomoProgressBar = setInterval(
+            fillCounter,
+            pomoCountProgressSpeed,
+            pomoCountString
+          );
         }
       });
 
       //settings logic #############################################
       //keep the button highlighted on the selected difficulty
-      userDifficultydb.on('value',function(snapshot){
-        if(snapshot.exists()){
+      userDifficultydb.on("value", function(snapshot) {
+        if (snapshot.exists()) {
           var difficulty = snapshot.val();
           difficultyFormat(difficulty);
           displayInfo(difficulty);
@@ -125,24 +118,20 @@ firebase.auth().onAuthStateChanged(function(user) {
       });
 
       //set up events-------------------------------------------------
-      easyButton.addEventListener("click",function(){
+      easyButton.addEventListener("click", function() {
         info_div.style.borderColor = "rgba(33, 201, 0, 0.5)";
         // difficultyFormat(EASY);
-        setDifficultyData(uid,EASY);
-
+        setDifficultyData(uid, EASY);
       });
-      mediumButton.addEventListener("click",function(){
+      mediumButton.addEventListener("click", function() {
         info_div.style.borderColor = "rgba(255, 144, 0, 0.5)";
         // difficultyFormat(MED);
-        setDifficultyData(uid,MED);
-
-
+        setDifficultyData(uid, MED);
       });
-      hardButton.addEventListener("click",function(){
+      hardButton.addEventListener("click", function() {
         info_div.style.borderColor = "rgba(230, 0, 0, 0.7)";
         // difficultyFormat(HARD);
-        setDifficultyData(uid,HARD);
-
+        setDifficultyData(uid, HARD);
       });
     }
 
@@ -154,79 +143,83 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById("login_div").style.display = "block";
     document.getElementById("create_div").style.display = "none";
     document.getElementById("settings_div").style.display = "none";
-    document.getElementById("logout_ele").style.display ="none";
+    document.getElementById("logout_ele").style.display = "none";
 
-    document.getElementById("welcome_ele").style.display ="none";
+    document.getElementById("welcome_ele").style.display = "display";
   }
 });
 
-
 //two functions below for account creations
-function create_div(){
+function create_div() {
   document.getElementById("create_div").style.display = "block";
   document.getElementById("login_div").style.display = "none";
 }
-function back(){
+function back() {
   document.getElementById("create_div").style.display = "none";
   document.getElementById("login_div").style.display = "block";
 }
 
-
-function login(){
+function login() {
   var userEmail = document.getElementById("email_field").value;
   var userPass = document.getElementById("password_field").value;
-    loadingBarOn();
-  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-    loadingBarOff();
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
+  loadingBarOn();
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(userEmail, userPass)
+    .catch(function(error) {
+      loadingBarOff();
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
 
-    window.alert("Error : " + errorMessage);
+      window.alert("Error : " + errorMessage);
 
-    // ...
-  });
-
+      // ...
+    });
 }
 
-function create(){
+function create() {
   var userEmail = document.getElementById("email_field_create").value;
   var userPass = document.getElementById("password_field_create").value;
   loadingBarOn();
-  firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-    loadingBarOff();
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(userEmail, userPass)
+    .catch(function(error) {
+      loadingBarOff();
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
 
-    window.alert("Error : " + errorMessage);
+      window.alert("Error : " + errorMessage);
 
-    // ...
-  });
-
+      // ...
+    });
 }
 
 //for testing only###############################################
-function skip(){
+function skip() {
   //test email
   var userEmail = "dezzy001@gmail.com";
   var userPass = "qwerty123";
   loadingBarOn();
-  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-    loadingBarOff();
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(userEmail, userPass)
+    .catch(function(error) {
+      loadingBarOff();
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
 
-    window.alert("Error : " + errorMessage);
+      window.alert("Error : " + errorMessage);
 
-    // ...
-  });
+      // ...
+    });
 }
 
-function logout(){
+function logout() {
   stopTimer();
 
   firebase.auth().signOut();
-
 }
